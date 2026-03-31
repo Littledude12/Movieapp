@@ -1,6 +1,6 @@
 # Movie App
 
-A fullstack movie application inspired by Imbdb
+A fullstack movie application inspired by Imdb
 
 ## Features
 
