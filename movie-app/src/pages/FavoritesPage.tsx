@@ -39,8 +39,17 @@ function FavoritesPage() {
     loadFavorites();
   }, []);
 
+  useEffect(() => {
+    if (!message) return;
 
+    const timer = setTimeout(() => {
+      setMessage("");
+    }, 3000);
 
+    return () => clearTimeout(timer);
+  }, [message]);
+
+  
   const handleRemoveFavorite = async (externalMovieId: number) => {
     try {
       await removeFavorite(externalMovieId);
@@ -54,16 +63,14 @@ function FavoritesPage() {
 
   return (
     <div className="container mt-4">
-      <h1 className="text-white mb-4">Favorites</h1>
+      <h1 className="text-white mb-4">Your favorites</h1>
 
-
-      {message && <p>{message}</p>}
-
+      {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
 
       {isLoading ? (
         <p>Loading...</p>
       ) : favorites.length === 0 ? (
-        <p>No favorites yet.</p>
+        <p className="text-white mb-4">No favorites yet.</p>
       ) : (
         <div className="row">
           {favorites.map((movie) => (

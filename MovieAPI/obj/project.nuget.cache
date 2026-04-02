@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g/6vM40clMw=",
+  "dgSpecHash": "GSU6zkEp6CU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\MovieAPI\\MovieAPI.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\Movie-project\\movieApi\\MovieAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

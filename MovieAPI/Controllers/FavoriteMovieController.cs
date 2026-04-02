@@ -21,12 +21,16 @@ public class FavoriteMovieController : ControllerBase
     }
 
 
+    // Kun innloggede brukere kan hente sine favorittfilmer, legge til nye og fjerne eksisterendee favorittfilmer
     [Authorize]
     [HttpPost]
     public async Task<IActionResult> AddFavorite([FromBody] CreateFavoriteDto dto)
     {
+    
+    // Henter bruker-ID fra JWT-tokenet til den innloggede brukeren
     var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
     
+    // Sjekker om filmen allerede er i favorittlisten til brukeren
     var exits = await _context.Favorites.AnyAsync(fav =>
         fav.UserId == userId &&
         fav.ExternalMovieId == dto.ExternalMovieId);

@@ -32,6 +32,17 @@ function MovieDetailsPage() {
     fetchMovie();
   }, [id]);
 
+  useEffect(() => {
+    if (!message) return;
+
+    const timer = setTimeout(() => {
+      setMessage("");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [message]);
+
+
   const handleAddToFavorites = async () => {
     if (!movie) return;
 

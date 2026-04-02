@@ -23,7 +23,7 @@ const RegisterPage = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Register</h2>
+      <h2 className="text-white mb-4">Register</h2>
 
       <input
         className="form-control mb-2"

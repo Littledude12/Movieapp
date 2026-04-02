@@ -32,6 +32,16 @@ function RatingsPage() {
     fetchRatingsAndMovies();
   }, []);
 
+  useEffect(() => {
+    if (!message) return;
+
+    const timer = setTimeout(() => {
+      setMessage("");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [message]);
+
 
   const removeRatingBtn = async (externalMovieId: number) => {
     try {
@@ -90,9 +100,9 @@ function RatingsPage() {
 
   return (
   <div className="container mt-4">
-    <h2 className="text-white mb-4">My Ratings</h2>
+    <h2 className="text-white mb-4">Your Ratings</h2>
 
-    {message && <p>{message}</p>}
+    {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
 
     {ratings.length === 0 ? (
       <p>No ratings yet.</p>

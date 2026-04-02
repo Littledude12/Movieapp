@@ -40,6 +40,16 @@ function WantToWatchPage() {
     loadWatchlist();
   }, []);
 
+  useEffect(() => {
+    if (!message) return;
+
+    const timer = setTimeout(() => {
+      setMessage("");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [message]);
+
 
   const handleRemove = async (externalMovieId: number) => {
     try {
@@ -55,15 +65,15 @@ function WantToWatchPage() {
 
   return (
     <div className="container mt-4">
-      <h1 className="text-white mb-4">Watchlist</h1>
+      <h1 className="text-white mb-4">Your watchlist</h1>
 
-      {message && <div className="alert alert-info">{message}</div>}
+      {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
 
 
       {isLoading ? (
         <p>Loading...</p>
       ) : list.length === 0 ? (
-        <p>No movies yet.</p>
+        <p className="text-white mb-4">No movies added yet.</p>
       ) : (
         <div className="row">
           {list.map((movie) => (

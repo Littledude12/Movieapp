@@ -27,7 +27,7 @@ const movieService = {
     return response.json();
   },
 
-  // 👇 NY
+  
   getPopularMovies: async () => {
     const response = await fetch(
       `${BASE_URL}/movie/popular?api_key=${API_KEY}`

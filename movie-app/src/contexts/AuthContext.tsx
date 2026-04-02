@@ -9,27 +9,35 @@ type AuthContextType = {
   logoutUser: () => void;
 };
 
-  const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext = createContext<AuthContextType | null>(null);
 
+function AuthProvider({ children }: { children: React.ReactNode }) {
 
-  function AuthProvider({ children }: { children: React.ReactNode }) {
+  // Henter lagret data fra localStorage så brukern ikke logges ut ved refresh
+  const storedToken = localStorage.getItem("token");
+  const storedUserId = localStorage.getItem("userId");
+  const storedUsername = localStorage.getItem("username");
+
+  // Sjekker om gyldig auth-data er lagret i localStorage
+  const hasValidAuth = !!(storedToken && storedUserId && storedUsername);
+
+  // State for token
   const [token, setToken] = useState<string | null>(
-  localStorage.getItem("token")
-
+    hasValidAuth ? storedToken : null
   );
 
   const [userId, setUserId] = useState<number | null>(
-  localStorage.getItem("userId")
-    ? Number(localStorage.getItem("userId"))
-    : null
+    hasValidAuth ? Number(storedUserId) : null
   );
 
   const [username, setUsername] = useState<string | null>(
-  localStorage.getItem("username")
+    hasValidAuth ? storedUsername : null
   );
 
-
+  // Funksjon som kjøres når bruker logger inn
   const loginUser = (token: string, userId: number, username: string) => {
+
+    // Lagrer auth-data i localStorage for å holde brukeren innlogget ved refresh
     localStorage.setItem("token", token);
     localStorage.setItem("userId", userId.toString());
     localStorage.setItem("username", username);
@@ -40,6 +48,8 @@ type AuthContextType = {
   };
 
   const logoutUser = () => {
+
+    // Fjerner auth-data fra localStorage når bruker logger ut
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("username");
@@ -63,9 +73,9 @@ type AuthContextType = {
       {children}
     </AuthContext.Provider>
   );
-
 }
 
+// Custom hook for å bruke auth-konteksten i komponenter
 export default AuthProvider;
 
 export const useAuth = () => {
