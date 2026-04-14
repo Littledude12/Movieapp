@@ -32,7 +32,7 @@ A fullstack movie application inspired by Imdb
 ---
 
 <img width="2560" height="1396" alt="homepage" src="https://github.com/user-attachments/assets/a79c2aba-d431-45a4-9709-7e0770236451" />
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/853eb0c5-b8f0-4383-bca5-029c55d9a9ab" />
+<img width="2560" height="1390" alt="Skjermbilde (254)" src="https://github.com/user-attachments/assets/dfc57c18-5749-4a4e-8c4c-210e9cd433e9" />
 <img width="2560" height="1362" alt="Skjermbilde (248)" src="https://github.com/user-attachments/assets/0570a7cf-b22a-4bf4-bda3-800ece4542b5" />
 <img width="2560" height="1373" alt="Skjermbilde (251)" src="https://github.com/user-attachments/assets/8b56e10d-9a05-4187-9169-339d960f09d1" />
 <img width="2557" height="1382" alt="Skjermbilde (252)" src="https://github.com/user-attachments/assets/dcae8a70-84bd-4676-ba8b-32190647760d" />
