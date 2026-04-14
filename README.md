@@ -1,11 +1,11 @@
 # Movie App
 
-En enkel IMDb-lignende webapp hvor brukere kan søke etter filmer, lagre favoritter, lage watchlist og gi ratings.
+En webapp inspirert av IMDb.
 
 ## Funksjonalitet
 
 - Registrering og innlogging (JWT)
-- Søke etter filmer (TMDB API)
+- Søke etter filmer 
 - Se detaljer om filmer
 - Legge til/fjerne favoritter
 - Legge til/fjerne watchlist
@@ -49,7 +49,7 @@ Backend:
 ![Ratings](https://github.com/user-attachments/assets/2a14045c-a110-43d7-8c48-79f4d5aaad7a)
 
 
-### Hvordan kjøre prosjektet
+## Hvordan kjøre prosjektet
 
 ### Backend
 - cd MovieAPI
