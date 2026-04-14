@@ -28,7 +28,7 @@ Backend:
 
 ---
 
-<## Screenshots
+## Screenshots
 
 ### Home
 ![Home](https://github.com/user-attachments/assets/a79c2aba-d431-45a4-9709-7e0770236451)
@@ -57,8 +57,8 @@ Backend:
 dotnet run
 
 ### Frontend
--cd movie-app
--Kjør:
+- cd movie-app
+- Kjør:
 npm install
 npm run dev
 
