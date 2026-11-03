@@ -39,10 +39,10 @@ Backend:
 ### Movie Details
 ![Movie Details](https://github.com/user-attachments/assets/0570a7cf-b22a-4bf4-bda3-800ece4542b5)
 
-### Favorites
+### Watchlist
 ![Favorites](https://github.com/user-attachments/assets/8b56e10d-9a05-4187-9169-339d960f09d1)
 
-### Watchlist
+### Favorites
 ![Watchlist](https://github.com/user-attachments/assets/dcae8a70-84bd-4676-ba8b-32190647760d)
 
 ### Ratings
