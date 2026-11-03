@@ -72,7 +72,7 @@ function SearchPage() {
         </div>  
       )}
 
-      {message && <p className="mt-3 text-center">{message}</p>}
+      {message && <p className="mt-3 text-center text-white">{message}</p>}
 
       <div className="row mt-4">
         {movies.map((movie) => (

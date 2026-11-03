@@ -29,11 +29,12 @@ function HomePage() {
       <div
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://image.tmdb.org/t/p/original/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg')",
+            "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "top center",
           color: "white",
-          padding: "80px 20px",
+          padding: "100px 0",
+          minHeight: "420px",
         }}
       >
         <div className="container">

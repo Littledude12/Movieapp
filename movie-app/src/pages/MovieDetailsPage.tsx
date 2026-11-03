@@ -15,6 +15,7 @@ function MovieDetailsPage() {
   const [movie, setMovie] = useState<MovieDetails | null>(null);
   const [message, setMessage] = useState("");
   const [selectedRating, setSelectedRating] = useState<number | "">("");
+  const [existingRating, setExistingRating] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -31,6 +32,25 @@ function MovieDetailsPage() {
 
     fetchMovie();
   }, [id]);
+
+  // Henter brukerens eksisterende rating for filmen, slik at den kan endres
+  useEffect(() => {
+    const fetchExistingRating = async () => {
+      if (!id || !isLoggedIn) return;
+
+      try {
+        const ratings = await ratingService.getRatings();
+        const rating = ratings.find((r) => r.externalMovieId === Number(id));
+
+        setExistingRating(rating ? rating.score : null);
+        setSelectedRating(rating ? rating.score : "");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchExistingRating();
+  }, [id, isLoggedIn]);
 
   useEffect(() => {
     if (!message) return;
@@ -88,8 +108,15 @@ function MovieDetailsPage() {
     }
 
     try {
-      await ratingService.addRating(movie.id, selectedRating);
-      setMessage("Rating added");
+      if (existingRating !== null) {
+        await ratingService.updateRating(movie.id, selectedRating);
+        setMessage("Rating updated");
+      } else {
+        await ratingService.addRating(movie.id, selectedRating);
+        setMessage("Rating added");
+      }
+
+      setExistingRating(selectedRating);
     } catch (error: any) {
       console.error(error);
       setMessage(error.response?.data || "Could not add rating");
@@ -196,8 +223,9 @@ function MovieDetailsPage() {
                 <button
                   className="btn btn-outline-light"
                   onClick={handleRateMovie}
+                  disabled={selectedRating === existingRating}
                 >
-                  Save
+                  {existingRating !== null ? "Update" : "Save"}
                 </button>
               </div>
             </div>

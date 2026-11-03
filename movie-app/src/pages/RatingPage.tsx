@@ -105,7 +105,7 @@ function RatingsPage() {
     {message && <div className="alert alert-info mt-3 text-center">{message}</div>}
 
     {ratings.length === 0 ? (
-      <p>No ratings yet.</p>
+      <p className="text-white mb-4">No ratings yet.</p>
     ) : (
       <div className="row">
         {ratings.map((rating) => {
@@ -157,6 +157,8 @@ function RatingsPage() {
                   <button
                     className="btn btn-outline-success btn-sm mb-2"
                     onClick={() => updateRatingBtn(rating.externalMovieId)}
+                    // Knappen er deaktivert til brukeren har valgt en annen score enn den lagrede
+                    disabled={(editedRatings[rating.externalMovieId] ?? rating.score) === rating.score}
                   >
                     Update Rating
                   </button>
